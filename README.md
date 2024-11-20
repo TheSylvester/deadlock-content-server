@@ -1,61 +1,95 @@
-# 🚀 Getting started with Strapi
+# Deadlock Content Server
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+A headless CMS powered by Strapi 5.4 that serves as the content management backend for the Deadlock Blog platform.
 
-### `develop`
+## Features
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+- Headless CMS with RESTful API and GraphQL endpoints
+- User authentication and permissions management
+- TypeScript support for enhanced type safety
+- SQLite database for data storage
+- Cloud-ready deployment configuration
+- Custom API endpoints and content types
+- Media library management
 
+## Tech Stack
+
+- **Framework**: Strapi 5.4.0
+- **Language**: TypeScript 5
+- **Database**: SQLite (better-sqlite3 11.3.0)
+- **Runtime**: Node.js (>=18.0.0 <=22.x.x)
+- **Authentication**: @strapi/plugin-users-permissions 5.4.0
+- **Cloud Integration**: @strapi/plugin-cloud 5.4.0
+
+## Prerequisites
+
+- Node.js (>=18.0.0 <=22.x.x)
+- npm (>=6.0.0)
+
+## Getting Started
+
+1. Clone the repository
+
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Set up your environment variables:
+   - Copy `.env.example` to `.env`
+   - Configure your environment variables as shown below
+
+4. Start the development server:
+```bash
 npm run develop
-# or
-yarn develop
 ```
 
-### `start`
+The admin panel will be available at: http://localhost:3001/admin
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
+## Project Structure
 
 ```
-npm run build
-# or
-yarn build
+deadlock-content-server/
+├── config/         # Strapi configuration files
+├── database/       # Database files and configurations
+├── public/         # Static files
+├── src/
+│   ├── api/       # API definitions and controllers
+│   ├── admin/     # Admin panel customizations
+│   ├── extensions/  # Custom extensions and overrides
+│   └── index.ts   # Main application entry point
+└── types/         # TypeScript type definitions
 ```
 
-## ⚙️ Deployment
+## Available Scripts
 
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
+- `npm run develop` - Start development server with auto-reload
+- `npm run start` - Start production server
+- `npm run build` - Build the admin panel
+- `npm run strapi` - Access Strapi CLI
+- `npm run deploy` - Deploy your Strapi application
+
+## Environment Variables
+
+Required environment variables for the application:
 
 ```
-yarn strapi deploy
+HOST=0.0.0.0
+PORT=3001
+APP_KEYS=your-app-keys
+API_TOKEN_SALT=your-api-token-salt
+ADMIN_JWT_SECRET=your-admin-jwt-secret
+JWT_SECRET=your-jwt-secret
 ```
 
-## 📚 Learn more
+## API Documentation
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+Once the server is running, you can access:
+- REST API documentation at: http://localhost:3001/documentation
+- Admin panel at: http://localhost:3001/admin
 
 ---
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+## 📚 Strapi Documentation
+
+For more information about using Strapi, please refer to the [official documentation](https://docs.strapi.io).
